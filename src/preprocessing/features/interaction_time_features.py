@@ -23,7 +23,7 @@ def user_response_time(p_dict):
         p_dict["p_id"], p_dict["partition_df"], p_dict["p_path"]
     df = partition_df[['U_ID', 'user_id', 'item_id', 'timestamp']].copy()
 
-    if p_dict["dataset"] == "squirrel":
+    if p_dict["dataset"] == "elemmath_2021":
         partition_raw = p_dict["partition_raw"]
         df_raw = partition_raw[partition_raw["event"] == 2]
 
@@ -192,7 +192,7 @@ def user_lag_time(p_dict):
         p_dict["p_id"], p_dict["partition_df"], p_dict["p_path"]
     df = partition_df[['U_ID', 'user_id', 'item_id', 'timestamp']].copy()
 
-    if p_dict["dataset"] == "squirrel":
+    if p_dict["dataset"] == "elemmath_2021":
         partition_raw = p_dict["partition_raw"]
         df_raw = partition_raw[partition_raw["event"] == 2]
 

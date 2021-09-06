@@ -6,7 +6,7 @@ from os import path
 from src.utils.misc import set_random_seeds
 from config.constants import SEED, DATASET_PATH
 
-SUPPORTED = ["squirrel", "ednet_kt3", 'eedi', 'junyi_15']
+SUPPORTED = ["elemmath_2021", "ednet_kt3", 'eedi', 'junyi_15']
 
 
 def prepare_saint(dataset):

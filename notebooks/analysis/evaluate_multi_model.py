@@ -11,8 +11,8 @@ from sklearn.metrics import roc_auc_score, accuracy_score
 # Set configuration
 ###############################################################################
 
-# "squirrel", "ednet_kt3", "eedi", "junyi_15"
-DATASET = "squirrel"
+# "elemmath_2021", "ednet_kt3", "eedi", "junyi_15"
+DATASET = "elemmath_2021"
 SEED = 888
 
 # represents experimental setting
@@ -21,7 +21,7 @@ SEED = 888
 # represents relevant partitions
 # i s t c sm tea sch at part part_id bundle bundle_id single
 
-# squirrel
+# elemmath_2021
 PARTITIONS = ["single", "time", "i", "s", "sm", "tea", "sch", "c", "t", "at"]
 SUFFIX = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_precW_prev_"\
     + "resp_time_cat_rc_s_scA_TW_scW_TW_sm_t_tcA_TW_tcW_TW_user_avg_correct_vw"

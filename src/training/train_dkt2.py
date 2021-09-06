@@ -15,7 +15,7 @@ from collections import defaultdict
 import json
 
 
-def get_data(df, split_id=0, dataset_name='squirrel', randomize=True):
+def get_data(df, split_id=0, dataset_name='elemmath_2021', randomize=True):
     """Extract sequences from dataframe.
     Arguments:
         df (pandas Dataframe): output by prepare_data.py
@@ -158,7 +158,7 @@ def train(train_data, val_data, model, optimizer, logger, saver, num_epochs, bat
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train DKT.')
-    parser.add_argument('--dataset', type=str, default='squirrel')
+    parser.add_argument('--dataset', type=str, default='elemmath_2021')
     parser.add_argument('--logdir', type=str, default='runs/dkt')
     parser.add_argument('--savedir', type=str, default='save/dkt')
     parser.add_argument('--hid_size', type=int, default=200)

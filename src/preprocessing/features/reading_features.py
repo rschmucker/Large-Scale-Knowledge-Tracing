@@ -18,7 +18,7 @@ def user_reading_count(p_dict):
     """
     p_id, p_path = p_dict["p_id"], p_dict["p_path"]
 
-    if p_dict["dataset"] == "squirrel":
+    if p_dict["dataset"] == "elemmath_2021":
         cs = ['U_ID', 'user_id', 'skill_id', 'timestamp']
         df = p_dict["partition_df"][cs].copy()
         df_raw = p_dict["partition_raw"]
@@ -78,7 +78,7 @@ def user_reading_time(p_dict):
     """
     p_id, p_path = p_dict["p_id"], p_dict["p_path"]
 
-    if p_dict["dataset"] == "squirrel":
+    if p_dict["dataset"] == "elemmath_2021":
         cs = ['U_ID', 'user_id', 'skill_id', 'timestamp']
         df = p_dict["partition_df"][cs].copy()
         df_raw = p_dict["partition_raw"]

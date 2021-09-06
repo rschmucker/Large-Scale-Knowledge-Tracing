@@ -42,7 +42,7 @@ POD = {  # part of day
 
 
 def extract_datetime(df, name):
-    if name == "squirrel":
+    if name == "elemmath_2021":
         return pd.to_datetime(df['date_time'], format=DFORMAT)
     elif name == "ednet_kt3":
         return pd.to_datetime(df['unix_time'], unit='s')

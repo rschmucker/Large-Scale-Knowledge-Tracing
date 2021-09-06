@@ -15,7 +15,7 @@ from src.utils.metrics import compute_metrics
 import json
 
 
-def get_data(df, max_length, split_id=0, dataset_name='squirrel', randomize=True):
+def get_data(df, max_length, split_id=0, dataset_name='elemmath_2021', randomize=True):
     """Extract sequences from dataframe.
     Arguments:
         df (pandas Dataframe): output by prepare_data.py

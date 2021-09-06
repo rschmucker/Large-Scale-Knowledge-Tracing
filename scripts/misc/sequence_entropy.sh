@@ -3,7 +3,7 @@
 ###############################################################################
 # Args:                                                                       #
 #    dataset (string): dataset name, available datasets:                      #
-#      - squirrel                                                             #
+#      - elemmath_2021                                                        #
 #      - ednet_kt3                                                            #
 #      - junyi_15                                                             #
 #      - junyi_20                                                             #
@@ -12,7 +12,7 @@
 ###############################################################################
 export PYTHONPATH="."
 
-dataset="squirrel"
+dataset="elemmath_2021"
 
 python ./src/analysis/sequence_entropy.py \
     --dataset=$dataset

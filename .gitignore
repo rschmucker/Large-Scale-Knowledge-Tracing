@@ -1,0 +1,26 @@
+
+# IDE Files
+.DS_Store
+.idea/
+.vscode/
+
+# Cache Files
+__pycache__/
+.ipynb*/
+
+# Data Files
+stats_*.npy
+*.html
+*.json
+*.zip
+*.pkl
+*.png
+*.pdf
+
+# Other
+/ckpt/
+/logs/
+/runs/
+/save/
+/connect.sh
+/data/

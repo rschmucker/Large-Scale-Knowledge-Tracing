@@ -20,8 +20,8 @@ def load_preprocessed_data(dataset):
     prep_path = os.path.join(DATASET_PATH[dataset], "preparation")
 
     print("Reading files...")
-    if dataset == "squirrel":
-        pp = os.path.join(DATASET_PATH[dataset], "ElemMATHdata_03_2021.csv")
+    if dataset == "elemmath_2021":
+        pp = os.path.join(DATASET_PATH[dataset], "ElemMath2021_data.csv")
         raw_df = pd.read_csv(pp)
         raw_df["timestamp"] = \
             (raw_df["server_time"] - raw_df["server_time"].min()) // 1000

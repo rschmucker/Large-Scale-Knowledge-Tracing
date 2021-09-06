@@ -6,7 +6,7 @@ import pandas as pd
 
 if __name__ == '__main__':
     dic = defaultdict(list)
-    for s in ['eedi', 'squirrel', 'ednet_kt3', 'junyi_15']:
+    for s in ['eedi', 'elemmath_2021', 'ednet_kt3', 'junyi_15']:
         for m in ['DKT2', 'SAKT', 'SAINT', 'SAINT_Plus', 'SAINT_Plus_Features']:
             try:
                 d = json.load(open(f'{m}_{s}.json', 'r'))

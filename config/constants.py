@@ -3,7 +3,7 @@ SEED = 888
 MIN_INTERACTIONS_PER_USER = 10
 NAN_VAL = -888
 
-# identifiers for squirrel events
+# identifiers for elemmath_2021 events
 READING = 1
 WATCH_VIDEO = 5
 SKIP_VIDEO = 6
@@ -29,14 +29,14 @@ ALL_FEATURES = ONE_HOT_FEATURES + COUNT_FEATURES + TIME_FEATURES \
 # Paths for data access
 PREPARATION_PATH = "./data/preparation/"
 DATASET_PATH = {
-    "squirrel": "./data/squirrel/",
+    "elemmath_2021": "./data/elemmath_2021/",
     "ednet_kt3": "./data/ednet_kt3/",
     "junyi_15": "./data/junyi_15/",
     "junyi_20": "./data/junyi_20/",
     "eedi": "./data/eedi/",
 }
 N_SM = {
-    "squirrel": 6,
+    "elemmath_2021": 6,
     "ednet_kt3": 8,
     "eedi": 59,
     "junyi_15": 8,

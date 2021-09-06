@@ -26,11 +26,11 @@ def parse_df_to_seq(df_path, seq_len=128):
 
 
 if __name__ == '__main__':
-    train_df = parse_df_to_seq('./data/squirrel/preparation/preprocessed_data_train.csv')
-    test_df = parse_df_to_seq('./data/squirrel/preparation/preprocessed_data_test.csv')
+    train_df = parse_df_to_seq('./data/elemmath_2021/preparation/preprocessed_data_train.csv')
+    test_df = parse_df_to_seq('./data/elemmath_2021/preparation/preprocessed_data_test.csv')
 
-    with open('./data/squirrel/preparation/saint_data_train.pkl', 'wb') as f:
+    with open('./data/elemmath_2021/preparation/saint_data_train.pkl', 'wb') as f:
         pickle.dump(train_df, f)
 
-    with open('./data/squirrel/preparation/saint_data_test.pkl', 'wb') as f:
+    with open('./data/elemmath_2021/preparation/saint_data_test.pkl', 'wb') as f:
         pickle.dump(test_df, f)

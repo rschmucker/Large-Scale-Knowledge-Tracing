@@ -5,8 +5,7 @@
 def add_feature_arguments(parser):
     # Features computations require a split id
     parser.add_argument('--split_id', type=int, default=0)
-    parser.add_argument('--dataset', type=str, help="Dataset to prepare. \
-                        Available options: 'squirrel', 'ednet_kt3'")
+    parser.add_argument('--dataset', type=str, help="Dataset to prepare.")
 
     # One-hot features:
     parser.add_argument('-u', action='store_true',

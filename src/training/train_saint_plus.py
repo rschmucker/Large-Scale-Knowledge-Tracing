@@ -15,7 +15,7 @@ from src.utils.data_loader import load_split
 from src.utils.metrics import compute_metrics
 
 
-def get_data(df, max_length, split_index=0, dataset_name='squirrel'):
+def get_data(df, max_length, split_index=0, dataset_name='elemmath_2021'):
     """
     Extract sequences from dataframe.
     Arguments:

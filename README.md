@@ -21,7 +21,7 @@ The following algorithms are implemented:
 
 The following datasets are supported:
 
-* [Squirrel Ai ElemMath](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=4888)
+* [Squirrel Ai ElemMath2021](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=4888)
 * [EdNet KT3](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view)
 * [Eedi](https://eedi.com/projects/neurips-education-challenge)
 * [Junyi15](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198)

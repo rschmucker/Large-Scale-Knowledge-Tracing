@@ -3,13 +3,13 @@
 ###############################################################################
 # Args:                                                                       #
 #    dataset (string): dataset name, available datasets:                      #
-#      - squirrel                                                             #
+#      - elemmath_2021                                                        #
 #      - ednet_kt3                                                            #
 #      - junyi_15                                                             #
 #      - eedi                                                                 #
 ###############################################################################
 
 export PYTHONPATH="."
-DATASET="squirrel"
+DATASET="elemmath_2021"
 
 python ./src/preparation/prepare_saint.py --dataset=$DATASET

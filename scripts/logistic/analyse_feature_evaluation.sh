@@ -3,7 +3,7 @@
 ###############################################################################
 # Args:                                                                       #
 #    dataset (string): dataset name, available datasets:                      #
-#      - squirrel                                                             #
+#      - elemmath_2021                                                        #
 #      - ednet_kt3                                                            #
 #      - junyi_15                                                             #
 #      - junyi_20                                                             #
@@ -16,7 +16,7 @@
 ###############################################################################
 
 export PYTHONPATH="."
-DATASET="squirrel"
+DATASET="elemmath_2021"
 EXPNAME="single_feature_evaluation"
 NSPLITS=5
 

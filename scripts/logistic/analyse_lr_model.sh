@@ -3,7 +3,7 @@
 ###############################################################################
 # Args:                                                                       #
 #    dataset (string): dataset name, available datasets:                      #
-#      - squirrel                                                             #
+#      - elemmath_2021                                                        #
 #      - ednet_kt3                                                            #
 #      - junyi_15                                                             #
 #      - junyi_20                                                             #
@@ -84,7 +84,7 @@
 #                                                                             #
 ###############################################################################
 export PYTHONPATH="."
-dataset="squirrel"
+dataset="elemmath_2021"
 
 # Select features using the flags above
 # features="-i -s -icA -icW -scA -scW -n_gram -user_avg_correct"

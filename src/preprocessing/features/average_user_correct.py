@@ -5,7 +5,7 @@ from src.preprocessing.features.feature_util import phi_inv
 
 N_AVG = 5
 AVG_CORRECT = {
-    "squirrel": 0.685249091469651,
+    "elemmath_2021": 0.685249091469651,
     "ednet_kt3": 0.661876189869379,
     "eedi": 0.6429725856250825,
     "junyi_15": 0.8298862191292307,

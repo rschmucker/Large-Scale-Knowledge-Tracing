@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.model_selection import KFold
 from config.constants import SEED, DATASET_PATH
 from src.utils.misc import set_random_seeds
-from src.preparation.datasets.squirrel import prepare_squirrel
+from src.preparation.datasets.elemmath_2021 import prepare_elemmath_2021
 from src.preparation.datasets.ednet_kt3 import prepare_ednet_kt3
 from src.preparation.datasets.junyi_20 import prepare_junyi_20
 from src.preparation.datasets.junyi_15 import prepare_junyi_15
@@ -50,8 +50,8 @@ if __name__ == "__main__":
     if not os.path.isdir(preparation_path):
         os.mkdir(preparation_path)
 
-    if dataset == "squirrel":
-        prepare_squirrel(args.n_splits)
+    if dataset == "elemmath_2021":
+        prepare_elemmath_2021(args.n_splits)
     elif dataset == "ednet_kt3":
         prepare_ednet_kt3(args.n_splits)
     elif dataset == "junyi_15":

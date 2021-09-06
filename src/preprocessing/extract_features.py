@@ -168,7 +168,7 @@ def parallel_feature_computation(data_dict, fname, ffunc):
             "dataset": data_dict["dataset"],
             "n_steps": data_dict.get('n_steps', N_STEPS),  # for n-gram
         }
-        if data_dict["dataset"] == "squirrel":
+        if data_dict["dataset"] == "elemmath_2021":
             raw_df = data_dict["raw_df"]
             raw_selector = raw_df['user_id'].isin(partition)
             w["partition_raw"] = raw_df.loc[raw_selector].copy()

@@ -3,7 +3,7 @@
 ###############################################################################
 # Args:                                                                       #
 #    dataset (string): dataset name, available datasets:                      #
-#      - squirrel                                                             #
+#      - elemmath_2021                                                        #
 #      - ednet_kt3                                                            #
 #      - junyi_15                                                             #
 #      - junyi_20                                                             #
@@ -87,7 +87,7 @@
 #                                                                             #
 ###############################################################################
 export PYTHONPATH="."
-DATASET="squirrel"
+DATASET="elemmath_2021"
 NTHREADS=23
 
 # "" to train time specialized, "1" for generalist
