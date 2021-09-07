@@ -1,6 +1,6 @@
 # Assessing the Knowledge State of Online Students
 
-This project provides an efficient analysis framework for the study of knowledge tracing algorithms using various large-scale datasets. It converts the different datasets into a standardized format and provides implementations of various logistic regression and deep learning algorithms. Parts of this codebase were adapted from an earlier [repository]([https://github.com/theophilee/learner-performance-prediction]) by Theophile Gervet. We offer convenient parallel processing capabilities for data preparation and feature extraction. Experiments can be started using the files provided in the scripts folder. This repository is published alongside the paper *Assessing the Knowledge State of Online Students - New Data, New Approaches, Improved Accuracy*. **TODO: Add link to paper**
+This project provides an efficient analysis framework for the study of knowledge tracing algorithms using various large-scale datasets. It converts the different datasets into a standardized format and provides implementations of various logistic regression and deep learning algorithms. Parts of this codebase were adapted from an earlier [repository]([https://github.com/theophilee/learner-performance-prediction]) by Theophile Gervet. We offer convenient parallel processing capabilities for data preparation and feature extraction. Experiments can be started using the files provided in the scripts folder. This repository is published alongside the paper *Assessing the Knowledge State of Online Students - New Data, New Approaches, Improved Accuracy* ([Link](https://arxiv.org/abs/2109.01753)).
 
 ## Algorithms
 
@@ -10,8 +10,8 @@ The following algorithms are implemented:
 * [Performance Factors Analysis (PFA)](http://pact.cs.cmu.edu/koedinger/pubs/AIED%202009%20final%20Pavlik%20Cen%20Keodinger%20corrected.pdf)
 * [DAS3H](https://arxiv.org/pdf/1905.06873.pdf)
 * [Best-LR](https://jedm.educationaldatamining.org/index.php/JEDM/article/download/451/123)
-* [Best-LR+] **TODO: Add link to paper**
-* [AugmentedLR] **TODO: Add link to paper**
+* [Best-LR+](https://arxiv.org/abs/2109.01753)
+* [AugmentedLR](https://arxiv.org/abs/2109.01753)
 * [DKT](https://arxiv.org/pdf/1506.05908.pdf)
 * [SAKT](https://arxiv.org/pdf/1907.06837.pdf)
 * [SAINT](https://dl.acm.org/doi/pdf/10.1145/3386527.3405945)  
@@ -74,6 +74,4 @@ The *scripts* and the *notebooks* folder both contain code to analyse the output
 
 ## Citation
 
-If you use this library please cite our paper:
-
-**TODO: Add citation and link to the paper**
+If you use this library please cite our paper: https://arxiv.org/abs/2109.01753
