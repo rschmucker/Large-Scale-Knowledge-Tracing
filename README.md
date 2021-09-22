@@ -39,7 +39,7 @@ conda activate vedu
 
 # use one of the requirement files
 pip install -r ./config/requirements_cpu.txt
-pip install -r ./config/requirements_cpu.txt
+pip install -r ./config/requirements_gpu.txt
 ```
 
 Before starting the experiments download the desired datasets using the links above and put the files into the respecitive directories in the *data* folder. Unzip the compressed data files. 
