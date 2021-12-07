@@ -26,6 +26,10 @@ from src.preprocessing.features.n_gram_feature import sequence_n_gram
 from src.preprocessing.features import feature_util
 
 N_STEPS = 10  # default for n-gram feature
+RPFA_GHOST = 3  # 3 originates from original paper
+RPFA_FAILURE_DECAY = 0.1
+RPFA_PROP_DECAY = 0.7
+
 
 FEATURE_FUNCTIONS = {
     # One-hot features
@@ -171,6 +175,9 @@ def parallel_feature_computation(data_dict, fname, ffunc):
             "p_path": tmp_path + fname + "_p" + str(i) + ".pkl",
             "dataset": data_dict["dataset"],
             "n_steps": data_dict.get('n_steps', N_STEPS),  # for n-gram
+            "rpfa_ghost": data_dict.get('rpfa_ghost', RPFA_GHOST),
+            "rpfa_fail_decay": data_dict.get('rpfa_fail_decay', RPFA_FAILURE_DECAY),
+            "rpfa_prop_decay": data_dict.get('rpfa_prop_decay', RPFA_PROP_DECAY),
         }
         if data_dict["dataset"] == "elemmath_2021":
             raw_df = data_dict["raw_df"]

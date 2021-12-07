@@ -6,7 +6,7 @@
 # parameter
 export PYTHONPATH="."
 DATASET="junyi_15"
-NTHREADS=23
+NTHREADS=31
 SPLITS=5
 
 
@@ -21,7 +21,8 @@ python ./src/preparation/prepare_data.py \
 OH_FEATURES="-i -s -sm -part"
 COUNT_FEATURES="-tcA -tcW -scA -scW -icA -icW -partcA -partcW"
 TW_FEATURES="-tcA_TW -tcW_TW -scA_TW -scW_TW -icA_TW -icW_TW"
-IT_FEATURES="-resp_time -resp_time_cat -prev_resp_time_cat -lag_time -lag_time_cat -prev_lag_time_cat"
+IT1_FEATURES="-resp_time -lag_time"
+IT2_FEATURES="-resp_time_cat -prev_resp_time_cat -lag_time_cat -prev_lag_time_cat"
 DATE_FEATURES="-month -week -day -hour -weekend -part_of_day"
 GRAPH_FEATURE="-pre -post -precA -precW -postcA -postcW"
 READING_FEATURE="-rc -rt"
@@ -35,7 +36,8 @@ FS=(
     "$OH_FEATURES"
     "$COUNT_FEATURES"
     "$TW_FEATURES"
-    "$IT_FEATURES"
+    "$IT1_FEATURES"
+    "$IT2_FEATURES"
     "$DATE_FEATURES"
     "$GRAPH_FEATURE"
     "$READING_FEATURE"

@@ -6,7 +6,7 @@
 # parameter
 export PYTHONPATH="."
 DATASET="eedi"
-NTHREADS=23
+NTHREADS=31
 SPLITS=5
 
 
