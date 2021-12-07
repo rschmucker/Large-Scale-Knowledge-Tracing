@@ -17,12 +17,13 @@ TIME_FEATURES = ['resp_time', 'resp_time_cat', 'prev_resp_time_cat',
                  'lag_time', 'lag_time_cat', 'prev_lag_time_cat']
 TIME_WINDOW_FEATURES = ['tcA_TW', 'tcW_TW', 'scA_TW', 'scW_TW',
                         'icA_TW', 'icW_TW']
+RPFA_FEATURES = ['rpfa_F', 'rpfa_R']
 DATETIME_FEATURES = ['month', 'week', 'day', 'hour', 'weekend', 'part_of_day']
 VIDEO_FEATURES = ['vw', 'vs', 'vt']
 STUDY_MODULE_FEATURES = ['smA', 'smW']
 READING_FEATURES = ["rc", "rt"]
 ALL_FEATURES = ONE_HOT_FEATURES + COUNT_FEATURES + TIME_FEATURES \
-   + TIME_WINDOW_FEATURES + VIDEO_FEATURES \
+   + TIME_WINDOW_FEATURES + RPFA_FEATURES + VIDEO_FEATURES \
    + STUDY_MODULE_FEATURES + DATETIME_FEATURES \
    + READING_FEATURES + GRAPH_FEATURES + ["user_avg_correct", "n_gram", "ones"]
 

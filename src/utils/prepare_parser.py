@@ -157,6 +157,12 @@ def add_feature_arguments(parser):
     parser.add_argument('-icW_TW', action='store_true',
                         help='If True, item count wins in time windows.')
 
+    # RPFA features
+    parser.add_argument('-rpfa_F', action='store_true',
+                        help='If True, recency-weighted failure count.')
+    parser.add_argument('-rpfa_R', action='store_true',
+                        help='If True, recency-weighted proportion correct.')
+
     # Datetime features
     parser.add_argument('-month', action='store_true',
                         help='If True, month one-hot.')

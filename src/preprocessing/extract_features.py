@@ -15,6 +15,7 @@ import src.preprocessing.features.one_hot_features as oh_features
 import src.preprocessing.features.count_features as c_features
 import src.preprocessing.features.graph_features as gr_features
 import src.preprocessing.features.time_window_features as tw_features
+import src.preprocessing.features.rpfa as rpfa_features
 import src.preprocessing.features.video_features as v_features
 import src.preprocessing.features.study_module_features as sm_features
 import src.preprocessing.features.interaction_time_features as it_features
@@ -92,6 +93,9 @@ FEATURE_FUNCTIONS = {
     'scW_TW': ("PARALLEL", tw_features.time_window_skill_count_wins),
     'icA_TW': ("PARALLEL", tw_features.time_window_item_count_attempts),
     'icW_TW': ("PARALLEL", tw_features.time_window_item_count_wins),
+    # RPFA features
+    'rpfa_F': ("PARALLEL", rpfa_features.recency_count_failures),
+    'rpfa_R': ("PARALLEL", rpfa_features.recency_count_proportion),
     # Higher order
     'user_avg_correct': ("SERIAL", user_avg_correct),
     'n_gram': ("PARALLEL", sequence_n_gram),
