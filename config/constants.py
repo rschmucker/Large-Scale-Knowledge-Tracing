@@ -25,7 +25,8 @@ READING_FEATURES = ["rc", "rt"]
 ALL_FEATURES = ONE_HOT_FEATURES + COUNT_FEATURES + TIME_FEATURES \
    + TIME_WINDOW_FEATURES + RPFA_FEATURES + VIDEO_FEATURES \
    + STUDY_MODULE_FEATURES + DATETIME_FEATURES \
-   + READING_FEATURES + GRAPH_FEATURES + ["user_avg_correct", "n_gram", "ones"]
+   + READING_FEATURES + GRAPH_FEATURES \
+   + ["user_avg_correct", "n_gram", "ppe", "ones"]
 
 # Paths for data access
 PREPARATION_PATH = "./data/preparation/"

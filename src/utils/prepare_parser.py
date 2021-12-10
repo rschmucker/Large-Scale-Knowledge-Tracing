@@ -163,6 +163,10 @@ def add_feature_arguments(parser):
     parser.add_argument('-rpfa_R', action='store_true',
                         help='If True, recency-weighted proportion correct.')
 
+    # PPE features
+    parser.add_argument('-ppe', action='store_true',
+                        help='If True, space-weighted attempt count.')
+
     # Datetime features
     parser.add_argument('-month', action='store_true',
                         help='If True, month one-hot.')

@@ -16,6 +16,7 @@ import src.preprocessing.features.count_features as c_features
 import src.preprocessing.features.graph_features as gr_features
 import src.preprocessing.features.time_window_features as tw_features
 import src.preprocessing.features.rpfa as rpfa_features
+import src.preprocessing.features.ppe as ppe_features
 import src.preprocessing.features.video_features as v_features
 import src.preprocessing.features.study_module_features as sm_features
 import src.preprocessing.features.interaction_time_features as it_features
@@ -27,9 +28,10 @@ from src.preprocessing.features import feature_util
 
 N_STEPS = 10  # default for n-gram feature
 RPFA_GHOST = 3  # 3 originates from original paper
-RPFA_FAILURE_DECAY = 0.1
-RPFA_PROP_DECAY = 0.7
-
+RPFA_FAIL_DEC = 0.1
+RPFA_PROP_DEC = 0.7
+PPE_B = 0.03
+PPE_M = 0.03
 
 FEATURE_FUNCTIONS = {
     # One-hot features
@@ -100,6 +102,8 @@ FEATURE_FUNCTIONS = {
     # RPFA features
     'rpfa_F': ("PARALLEL", rpfa_features.recency_count_failures),
     'rpfa_R': ("PARALLEL", rpfa_features.recency_count_proportion),
+    # PPE feature
+    'ppe': ("PARALLEL", ppe_features.ppe_feature),
     # Higher order
     'user_avg_correct': ("SERIAL", user_avg_correct),
     'n_gram': ("PARALLEL", sequence_n_gram),
@@ -176,8 +180,10 @@ def parallel_feature_computation(data_dict, fname, ffunc):
             "dataset": data_dict["dataset"],
             "n_steps": data_dict.get('n_steps', N_STEPS),  # for n-gram
             "rpfa_ghost": data_dict.get('rpfa_ghost', RPFA_GHOST),
-            "rpfa_fail_decay": data_dict.get('rpfa_fail_decay', RPFA_FAILURE_DECAY),
-            "rpfa_prop_decay": data_dict.get('rpfa_prop_decay', RPFA_PROP_DECAY),
+            "rpfa_fail_decay": data_dict.get('rpfa_fail_decay', RPFA_FAIL_DEC),
+            "rpfa_prop_decay": data_dict.get('rpfa_prop_decay', RPFA_PROP_DEC),
+            "ppe_b": data_dict.get('ppe_b', PPE_B),
+            "ppe_m": data_dict.get('ppe_m', PPE_M),
         }
         if data_dict["dataset"] == "elemmath_2021":
             raw_df = data_dict["raw_df"]
