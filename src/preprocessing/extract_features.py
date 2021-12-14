@@ -28,10 +28,20 @@ from src.preprocessing.features import feature_util
 
 N_STEPS = 10  # default for n-gram feature
 RPFA_GHOST = 3  # 3 originates from original paper
-RPFA_FAIL_DEC = 0.1
-RPFA_PROP_DEC = 0.7
-PPE_B = 0.03
-PPE_M = 0.03
+RPFA_PARAMS = {
+    "elemmath_2021": {"rpfa_F": 0.8, "rpfa_R": 0.8},
+    "ednet_kt3": {"rpfa_F": 0.9, "rpfa_R": 1.0},
+    "eedi": {"rpfa_F": 0.8, "rpfa_R": 1.0},
+    "junyi_15": {"rpfa_F": 0.9, "rpfa_R": 0.7}
+}
+
+PPE_PARAMS = {
+    "elemmath_2021": {"ppe_b": 0.01, "rpfa_m": 0.028},
+    "ednet_kt3": {"ppe_b": 0.01, "rpfa_m": 0.02},
+    "eedi": {"ppe_b": 0.014, "rpfa_m": 0.02},
+    "junyi_15": {"ppe_b": 0.026, "rpfa_m": 0.02}
+}
+
 
 FEATURE_FUNCTIONS = {
     # One-hot features
@@ -173,6 +183,9 @@ def parallel_feature_computation(data_dict, fname, ffunc):
     for i, partition in enumerate(user_partition):
         print("Partition: " + str(i))
         interaction_selector = interaction_df['user_id'].isin(partition)
+        rpfa_params = RPFA_PARAMS[data_dict["dataset"]]
+        ppe_params = PPE_PARAMS[data_dict["dataset"]]
+
         w = {
             "p_id": i,
             "partition_df": interaction_df.loc[interaction_selector].copy(),
@@ -180,10 +193,12 @@ def parallel_feature_computation(data_dict, fname, ffunc):
             "dataset": data_dict["dataset"],
             "n_steps": data_dict.get('n_steps', N_STEPS),  # for n-gram
             "rpfa_ghost": data_dict.get('rpfa_ghost', RPFA_GHOST),
-            "rpfa_fail_decay": data_dict.get('rpfa_fail_decay', RPFA_FAIL_DEC),
-            "rpfa_prop_decay": data_dict.get('rpfa_prop_decay', RPFA_PROP_DEC),
-            "ppe_b": data_dict.get('ppe_b', PPE_B),
-            "ppe_m": data_dict.get('ppe_m', PPE_M),
+            "rpfa_fail_decay": data_dict.get('rpfa_fail_decay',
+                                             rpfa_params["rpfa_F"]),
+            "rpfa_prop_decay": data_dict.get('rpfa_prop_decay',
+                                             rpfa_params["rpfa_R"]),
+            "ppe_b": data_dict.get('ppe_b', ppe_params["ppe_b"]),
+            "ppe_m": data_dict.get('ppe_m', ppe_params["ppe_m"]),
         }
         if data_dict["dataset"] == "elemmath_2021":
             raw_df = data_dict["raw_df"]

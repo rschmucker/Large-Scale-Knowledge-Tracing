@@ -1,3 +1,4 @@
+from multiprocessing import Value
 import os
 import json
 import time
@@ -65,12 +66,12 @@ def train_func(X_train, y_train, X_test, y_test, args):
 
 
 def store_results(met_train, met_test, features, spl_id, model, path,
-                  f_dec, r_dec):
+                  f1, f2):
     print("\nStoring results...")
     suf = '_'.join(features)
 
     res_path = path + "s" + str(SEED) + "-" + str(spl_id) + "_" + suf + \
-        "_" + str(f_dec) + "_" + str(r_dec) + ".json"
+        "_" + str(f1) + "_" + str(f2) + ".json"
     res_dict = {
         "time": datetime.datetime.now().isoformat(),
         "features": features,
@@ -125,20 +126,45 @@ if __name__ == "__main__":
     if not os.path.isdir(feature_path):
         os.mkdir(feature_path)
 
-    f_decays = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-    r_decays = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    rpfa_f_decays = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    rpfa_r_decays = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+
+    ppe_bs = [0.010, 0.014, 0.018, 0.022, 0.026, 0.030, 0.034, 0.038, 0.042,
+              0.046, 0.050]
+    ppe_ms = [0.020, 0.022, 0.024, 0.026, 0.028, 0.030, 0.032, 0.034, 0.036,
+              0.038, 0.040]
+
+    if args.exp_name == "tuning_rpfa":
+        f1_range = rpfa_f_decays
+        f2_range = rpfa_r_decays
+    elif args.exp_name == "tuning_ppe":
+        f1_range = ppe_bs
+        f2_range = ppe_ms
+    else:
+        raise ValueError("experiment name is invalid")
+
+    print("\n" + args.exp_name)
+    print("f1:", f1_range)
+    print("f2:", f2_range)
 
     # only prepare one of them at a time
-    for f_dec in f_decays:
+    for f1 in f1_range:
         data_dict = load_preprocessed_data(args.dataset)
         data_dict["n_threads"] = args.num_threads
         data_dict["split_id"] = args.split_id
-        data_dict["rpfa_fail_decay"] = f_dec
-        extract_features(["rpfa_F"], data_dict, recompute=True)
+        # rpfa
+        # data_dict["rpfa_fail_decay"] = f1
+        # extract_features(["rpfa_F"], data_dict, recompute=True)
 
-        for r_dec in r_decays:
-            data_dict["rpfa_prop_decay"] = r_dec
-            extract_features(["rpfa_R"], data_dict, recompute=True)
+        for f2 in f2_range:
+            # rpfa
+            # data_dict["rpfa_prop_decay"] = f2
+            # extract_features(["rpfa_R"], data_dict, recompute=True)
+
+            # ppe
+            data_dict["ppe_b"] = f1
+            data_dict["ppe_m"] = f2
+            extract_features(["ppe"], data_dict, recompute=True)
 
             # Combine and evaluate
             # --------------------------------------------------------------
@@ -161,6 +187,6 @@ if __name__ == "__main__":
                 f"\nrmse_tr = {m_train['rmse']}, rmse_te = {m_test['rmse']},")
 
             store_results(m_train, m_test, selected_features,
-                        split_id, lr_model, res_path, f_dec, r_dec)
+                        split_id, lr_model, res_path, f1, f2)
             print("\n----------------------------------------")
             print("Completed logistic regression")

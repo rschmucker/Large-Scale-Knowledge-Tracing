@@ -26,7 +26,8 @@ GRAPH_FEATURE="-pre -post -precA -precW -postcA -postcW"
 SM_FEATURES="-smA -smW"
 AVERAGE_CORRRECT="-user_avg_correct"
 NGRAM="-n_gram"
-
+RPFA="-rpfa_F -rpfa_R"
+PPE="-ppe"
 
 # select feature classes for extraction
 FS=(
@@ -38,6 +39,8 @@ FS=(
     "$SM_FEATURES"
     "$AVERAGE_CORRRECT"
     "$NGRAM"
+    "$RPFA"
+    "$PPE"
 )
 
 
