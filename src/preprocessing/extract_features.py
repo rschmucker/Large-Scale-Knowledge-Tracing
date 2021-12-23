@@ -36,10 +36,10 @@ RPFA_PARAMS = {
 }
 
 PPE_PARAMS = {
-    "elemmath_2021": {"ppe_b": 0.01, "rpfa_m": 0.028},
-    "ednet_kt3": {"ppe_b": 0.01, "rpfa_m": 0.02},
-    "eedi": {"ppe_b": 0.014, "rpfa_m": 0.02},
-    "junyi_15": {"ppe_b": 0.026, "rpfa_m": 0.02}
+    "elemmath_2021": {"ppe_b": 0.01, "ppe_m": 0.028},
+    "ednet_kt3": {"ppe_b": 0.01, "ppe_m": 0.02},
+    "eedi": {"ppe_b": 0.014, "ppe_m": 0.02},
+    "junyi_15": {"ppe_b": 0.026, "ppe_m": 0.02}
 }
 
 

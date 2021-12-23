@@ -166,7 +166,7 @@ if __name__ == "__main__":
     parser.add_argument('--num_hid_layers', type=int, default=1)
     parser.add_argument('--drop_prob', type=float, default=0.5)
     parser.add_argument('--batch_size', type=int, default=100)
-    parser.add_argument('--lr', type=float, default=5e-3)
+    parser.add_argument('--lr', type=float, default=1e-3)
     parser.add_argument('--num_epochs', type=int, default=100)
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--total_split', type=int, default=5)

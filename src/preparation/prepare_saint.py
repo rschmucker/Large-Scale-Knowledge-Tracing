@@ -38,6 +38,8 @@ def prepare_saint(dataset):
             lag_df.assign(lag_time_cat=np.argmax(lag_df.to_numpy(), axis=1))
         lag_df = lag_df[['lag_time_cat']]
         dfs.append(lag_df)
+    elif dataset == "eedi":
+        pass
     else:
         raise RuntimeError("Compute lag_time_cat feature first.")
 
@@ -53,6 +55,8 @@ def prepare_saint(dataset):
             resp_df.assign(resp_time_cat=np.argmax(resp_df.to_numpy(), axis=1))
         resp_df = resp_df[['resp_time_cat']]
         dfs.append(resp_df)
+    elif dataset == "eedi":
+        pass
     else:
         raise RuntimeError("Compute resp_time_cat feature first.")
 
