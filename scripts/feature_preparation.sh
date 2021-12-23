@@ -67,6 +67,9 @@
 #    -rpfa_F: recency-weighted failure count                                  #
 #    -rpfa_R: recency-weighted proportion of past successes                   #
 #                                                                             #
+# PPE feature  :                                                              #
+#    -ppe: spacing time weighted attempt count                                #
+#                                                                             #
 # Datetime features:                                                          #
 #    -month: month one-hot                                                    #
 #    -week: week one-hot                                                      #
@@ -90,7 +93,7 @@
 #                                                                             #
 ###############################################################################
 export PYTHONPATH="."
-DATASET="elemmath_2021"
+DATASET="junyi_15"
 NTHREADS=31
 
 # Select features using the flags above
@@ -104,6 +107,9 @@ features="-i"
 
 # RPFA:
 # features="-s -rpfa_F -rpfa_R"
+
+# PPE:
+# features="-s -ppe"
 
 # DAS3H:
 #features="-i -s -scA_TW -scW_TW"

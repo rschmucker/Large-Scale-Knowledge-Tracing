@@ -208,6 +208,7 @@ if __name__ == "__main__":
     parser.add_argument('--total_split', type=int, default=5)
     parser.add_argument('--print_every', type=int, default=50)
     args = parser.parse_args()
+    print(args.logdir, args.dataset, args.total_split)
 
     set_random_seeds(args.seed)
     print('Reading the data from data/{}/preparation'.format(args.dataset))
@@ -230,12 +231,15 @@ if __name__ == "__main__":
             try:
                 # Train
                 param_str = (f'{args.dataset},'
+                             f'epochs={args.num_epochs},'
                              f'batch_size={args.batch_size},'
-                             f'max_length={args.max_length},'
-                             f'encode_pos={args.encode_pos},'
-                             f'max_pos={args.max_pos}')
-                logger = Logger(os.path.join(args.logdir, param_str))
-                saver = Saver(args.savedir, param_str)
+                             f'embed_size={args.embed_size},'
+                             f'num_attn_layers={args.num_attn_layers},'
+                             f'drop_prob={args.drop_prob}')
+                print(split_id, param_str)
+                logger = Logger(os.path.join(args.logdir, param_str
+                                + "_" + str(split_id)))
+                saver = Saver(args.savedir, param_str + "_" + str(split_id))
                 train(train_data, val_data, model, optimizer, logger, saver, args.num_epochs,
                       args.batch_size, args.grad_clip)
                 break
@@ -295,5 +299,5 @@ if __name__ == "__main__":
     print('[Train]' + ''.join(['[{}: {:.4f}]'.format(k, np.mean(v)) for k, v in metric_dic['train'].items()]))
     print('[Test]' + ''.join(['[{}: {:.4f}]'.format(k, np.mean(v)) for k, v in metric_dic['test'].items()]))
 
-    with open(f"results/SAKT_{args.dataset}.json", "w") as outfile:
+    with open(f"results/SAKT_" + param_str + ".json", "w") as outfile:
         json.dump(metric_dic, outfile, indent=4)

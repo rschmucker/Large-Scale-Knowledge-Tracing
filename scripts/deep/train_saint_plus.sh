@@ -5,6 +5,5 @@ for dataset in junyi_15 elemmath_2021 ednet_kt3
 do
   CUDA_VISIBLE_DEVICES=$device_id python ./src/training/train_saint_plus.py \
     --dataset=$dataset \
-    --batch_size=128 \
     --total_split=5
 done

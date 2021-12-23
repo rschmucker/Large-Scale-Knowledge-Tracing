@@ -185,8 +185,8 @@ def train(train_data, val_data, model, optimizer, logger, saver, num_epochs, bat
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train SAINT.')
     parser.add_argument('--dataset', type=str)
-    parser.add_argument('--logdir', type=str, default='runs/saint')
-    parser.add_argument('--savedir', type=str, default='save/saint')
+    parser.add_argument('--logdir', type=str, default='runs/saint_plus')
+    parser.add_argument('--savedir', type=str, default='save/saint_plus')
     parser.add_argument('--model_size', type=int, default=512)
     parser.add_argument('--encoder_layer', type=int, default=4)
     parser.add_argument('--decoder_layer', type=int, default=4)
@@ -200,6 +200,7 @@ if __name__ == "__main__":
     parser.add_argument('--total_split', type=int, default=5)
     parser.add_argument('--print_every', type=int, default=50)
     args = parser.parse_args()
+    print(args.logdir, args.dataset, args.total_split)
 
     set_random_seeds(args.seed)
     print('Reading the data from data/{}/preparation'.format(args.dataset))
@@ -235,19 +236,17 @@ if __name__ == "__main__":
                 # Train
                 param_str = (
                     f'{args.dataset},'
+                    f'epochs={args.num_epochs},'
                     f'batch_size={args.batch_size},'
+                    f'model_size={args.model_size},'
                     f'n_encoder={args.encoder_layer},'
-                    f'n_decoder={args.decoder_layer},'
-                    f'enc_heads={args.heads_en},'
-                    f'dec_heads={args.heads_de},'
-                    f'n_dims={args.model_size},'
-                    f'total_ex={max_item},'
-                    f'total_cat={max_skill},'
-                    f'total_responses={max_label}')
-                logger = Logger(os.path.join(args.logdir, param_str))
-                saver = Saver(args.savedir, param_str)
-                train(train_data, val_data, model, optimizer, logger, saver, args.num_epochs,
-                      args.batch_size, seq_len=args.seq_len)
+                    f'n_decoder={args.decoder_layer}')
+                print(split_id, param_str)
+                logger = Logger(os.path.join(args.logdir, param_str
+                                             + "_" + str(split_id)))
+                saver = Saver(args.savedir, param_str + "_" + str(split_id))
+                train(train_data, val_data, model, optimizer, logger, saver,
+                      args.num_epochs, args.batch_size, seq_len=args.seq_len)
                 break
             except RuntimeError:
                 args.batch_size = args.batch_size // 2
@@ -305,5 +304,5 @@ if __name__ == "__main__":
     print('[Train]' + ''.join(['[{}: {:.4f}]'.format(k, np.mean(v)) for k, v in metric_dic['train'].items()]))
     print('[Test]' + ''.join(['[{}: {:.4f}]'.format(k, np.mean(v)) for k, v in metric_dic['test'].items()]))
 
-    with open(f"results/SAINT_Plus_{args.dataset}.json", "w") as outfile:
+    with open(f"results/SAINT_Plus_" + param_str + ".json", "w") as outfile:
         json.dump(metric_dic, outfile, indent=4)

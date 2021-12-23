@@ -73,12 +73,15 @@
 #                                                                             #
 ###############################################################################
 export PYTHONPATH="."
-DATASET="elemmath_2021"
-EXPNAME="tuning_rpfa"
-NTHREADS=23
+DATASET="junyi_15"
+EXPNAME="tuning_ppe"
+NTHREADS=31
 
 # RPFA:
-features="-s -rpfa_F -rpfa_R"
+# features="-s -rpfa_F -rpfa_R"
+
+# PPE:
+features="-s -ppe"
 
 python ./src/analysis/feature_tuning.py \
     --dataset=$DATASET \
