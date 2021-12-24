@@ -17,7 +17,7 @@ EELR="-i -s \
       -sm \
       -tea -bundle \
       -precA -precW \
-      -user_avg_correct -n_gram"
+      -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
 for (( i=0; i<$SPLITS; i++ )); do
 #---------------------------------------------------------#
