@@ -47,6 +47,13 @@
 #    -partcA: count previous attempts in this part                            #
 #    -partcW: count previous wins in this part                                #
 #                                                                             #
+# RPFA features:                                                              #
+#    -rpfa_F: recency-weighted failure count                                  #
+#    -rpfa_R: recency-weighted proportion of past successes                   #
+#                                                                             #
+# PPE feature  :                                                              #
+#    -ppe: spacing time weighted attempt count                                #
+#                                                                             #
 # Graph features:                                                             #
 #    -pre: pre-req skill one-hot                                              #
 #    -post: pre-req skill one-hot                                             #
@@ -99,6 +106,12 @@ features="-i"
 # PFA:
 # features="-s -scA -scW"
 
+# RPFA:
+# features="-s -rpfa_F -rpfa_R"
+
+# PPE:
+# features="-s -ppe"
+
 # DAS3H:
 # features="-i -s -scA_TW -scW_TW"
 
@@ -108,7 +121,7 @@ features="-i"
 # Best-LR+:
 # features="-i -s \
 #     -icA_TW -icW_TW -scA_TW -scW_TW -tcA_TW -tcW_TW \
-#     -user_avg_correct -n_gram"
+#     -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
 
 python ./src/training/compute_lr.py \

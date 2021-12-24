@@ -7,7 +7,7 @@
 export PYTHONPATH="."
 DATASET="elemmath_2021"
 EXPNAME="single_feature_evaluation"
-NPROCESSES=1     
+NPROCESSES=1
 NTHREADS=4
 SPLITS=5
 
@@ -153,7 +153,37 @@ cmd+="python ./src/training/compute_lr.py \
     --split_id=$i \
     --exp_name=$EXPNAME $NGRAM\n"
 
-# -------------------------------------------------------#
+#---------------------------------------------------------#
+# PPE feature                                             #
+#---------------------------------------------------------#
+PPE="-ppe"
+cmd+="python ./src/training/compute_lr.py \
+    --dataset=$DATASET \
+    --num_threads=$NTHREADS \
+    --split_id=$i \
+    --exp_name=$EXPNAME $PPE\n"
+
+#---------------------------------------------------------#
+# RPFA features                                           #
+#---------------------------------------------------------#
+# Comes in pairs and combined
+RPFA="-rpfa_F -rpfa_R"
+for f in "-rpfa_F" "-rpfa_R"; do
+cmd+="python ./src/training/compute_lr.py \
+    --dataset=$DATASET \
+    --num_threads=$NTHREADS \
+    --split_id=$i \
+    --exp_name=$EXPNAME $f\n"
+done
+
+cmd+="python ./src/training/compute_lr.py \
+    --dataset=$DATASET \
+    --num_threads=$NTHREADS \
+    --split_id=$i \
+    --exp_name=$EXPNAME $RPFA\n"
+
+# --------------------------------------------------------#
+
 done
 
 

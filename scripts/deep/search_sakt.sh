@@ -25,7 +25,7 @@ do
     --num_epochs=$NUM_EPOCHS \
     --batch_size=$BATCH_SIZE \
     --num_attn_layers=$LAYERS \
-    --embed_size=nodes=$nodes \
+    --embed_size=$nodes \
     --drop_prob=$dropout
 done
 #---------------------------------------------------------#
