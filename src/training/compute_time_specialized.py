@@ -205,7 +205,7 @@ if __name__ == "__main__":
     }
     print(res_dict)
 
-    with open('notebooks/plotting/temporal/' + name + '.pkl', 'wb') as f:
+    with open('notebooks/analysis/temporal/' + name + '.pkl', 'wb') as f:
         pickle.dump(res_dict, f)
 
     print("\n----------------------------------------")
