@@ -19,11 +19,11 @@ EELR="-i -s \
       -precA -precW \
       -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
-for (( i=0; i<$SPLITS; i++ )); do
 #---------------------------------------------------------#
 # Partitionings                                           #
 #---------------------------------------------------------#
 for f in "i" "hashed_skill_id" "sm" "tea" "bundle_id" "single" "time"; do
+for (( i=0; i<$SPLITS; i++ )); do
 cmd+="python ./src/training/compute_multi_lr.py \
     --dataset=$DATASET \
     --num_threads=$NTHREADS \
