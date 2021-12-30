@@ -19,11 +19,12 @@ JULR="-i -s \
       -lag_time_cat -prev_resp_time_cat \
       -precA -precW -postcA -postcW -rc -hour \
       -user_avg_correct -n_gram"
-for (( i=0; i<$SPLITS; i++ )); do
+
 #---------------------------------------------------------#
 # Partitionings                                           #
 #---------------------------------------------------------#
 for f in "i" "s" "sm" "part_id" "single" "time"; do
+for (( i=0; i<$SPLITS; i++ )); do
 cmd+="python ./src/training/compute_multi_lr.py \
     --dataset=$DATASET \
     --num_threads=$NTHREADS \

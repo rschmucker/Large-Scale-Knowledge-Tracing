@@ -13,7 +13,7 @@ BATCH_SIZE=128
 # 2 4 6
 LAYERS=4
 
-for nodes in 50 100 200 500; do
+for nodes in 64 128 256 512; do
 #---------------------------------------------------------#
 for dataset in elemmath_2021 ednet_kt3 eedi junyi_15; do
   CUDA_VISIBLE_DEVICES=$device_id python ./src/training/train_saint_plus.py \
@@ -23,7 +23,7 @@ for dataset in elemmath_2021 ednet_kt3 eedi junyi_15; do
     --batch_size=$BATCH_SIZE \
     --encoder_layer=$LAYERS \
     --decoder_layer=$LAYERS \
-    --model_size=$nodes \
+    --model_size=$nodes
 done
 #---------------------------------------------------------#
 done

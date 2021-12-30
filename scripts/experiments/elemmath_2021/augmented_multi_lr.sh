@@ -18,11 +18,12 @@ SQLR="-i -s \
       -lag_time_cat -prev_resp_time_cat \
       -t -precA -precW -postcA -postcW -rc -vw \
       -user_avg_correct -n_gram"
-for (( i=0; i<$SPLITS; i++ )); do
+
 #---------------------------------------------------------#
 # Partitionings                                           #
 #---------------------------------------------------------#
 for f in "i" "s" "sm" "tea" "sch" "c" "t" "at" "single" "time"; do
+for (( i=0; i<$SPLITS; i++ )); do
 cmd+="python ./src/training/compute_multi_lr.py \
     --dataset=$DATASET \
     --num_threads=$NTHREADS \
