@@ -61,6 +61,13 @@
 #    -lag_time_cat: lag time phi and categories                               #
 #    -prev_lag_time_cat: previous lag time phi and categories                 #
 #                                                                             #
+# RPFA features:                                                              #
+#    -rpfa_F: recency-weighted failure count                                  #
+#    -rpfa_R: recency-weighted proportion of past successes                   #
+#                                                                             #
+# PPE feature  :                                                              #
+#    -ppe: spacing time weighted attempt count                                #
+#                                                                             #
 # Datetime features:                                                          #
 #    -month: month one-hot                                                    #
 #    -week: week one-hot                                                      #

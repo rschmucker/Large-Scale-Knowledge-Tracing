@@ -64,6 +64,13 @@
 #    -lag_time_cat: lag time phi and categories                               #
 #    -prev_lag_time_cat: previous lag time phi and categories                 #
 #                                                                             #
+# RPFA features:                                                              #
+#    -rpfa_F: recency-weighted failure count                                  #
+#    -rpfa_R: recency-weighted proportion of past successes                   #
+#                                                                             #
+# PPE feature  :                                                              #
+#    -ppe: spacing time weighted attempt count                                #
+#                                                                             #
 # Datetime features:                                                          #
 #    -month: month one-hot                                                    #
 #    -week: week one-hot                                                      #
@@ -108,8 +115,8 @@ features="-i -s -icA -icW -scA -scW -n_gram -user_avg_correct"
 
 # Best-LR+
 # features="-i -s \
-#      -icA_TW -icW_TW -scA_TW -scW_TW -tcA_TW -tcW_TW \
-#      -user_avg_correct -n_gram"
+#    -icA_TW -icW_TW -scA_TW -scW_TW -tcA_TW -tcW_TW \
+#    -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
 python ./src/training/compute_time_specialized.py \
     --dataset=$DATASET \

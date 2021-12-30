@@ -13,7 +13,7 @@ SPLITS=5
 
 LRP="-i -s \
      -icA_TW -icW_TW -scA_TW -scW_TW -tcA_TW -tcW_TW \
-     -user_avg_correct -n_gram"
+     -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
 cmd=""
 

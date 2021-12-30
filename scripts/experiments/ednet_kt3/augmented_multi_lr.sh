@@ -16,8 +16,8 @@ EDLR="-i -s \
       -icA_TW -icW_TW -scA_TW -scW_TW -tcA_TW -tcW_TW \
       -sm \
       -lag_time_cat -prev_resp_time_cat \
-      -partcA -partcW -vw\
-      -user_avg_correct -n_gram"
+      -partcA -partcW -vw -vs \
+      -user_avg_correct -n_gram -rpfa_F -rpfa_R -ppe"
 
 #---------------------------------------------------------#
 # Partitionings                                           #

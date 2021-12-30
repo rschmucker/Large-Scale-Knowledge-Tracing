@@ -47,6 +47,13 @@
 #    -partcA: count previous attempts in this part                            #
 #    -partcW: count previous wins in this part                                #
 #                                                                             #
+# RPFA features:                                                              #
+#    -rpfa_F: recency-weighted failure count                                  #
+#    -rpfa_R: recency-weighted proportion of past successes                   #
+#                                                                             #
+# PPE feature  :                                                              #
+#    -ppe: spacing time weighted attempt count                                #
+#                                                                             #
 # Graph features:                                                             #
 #    -pre: pre-req skill one-hot                                              #
 #    -post: pre-req skill one-hot                                             #

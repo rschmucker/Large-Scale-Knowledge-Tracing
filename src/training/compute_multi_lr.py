@@ -305,7 +305,7 @@ if __name__ == "__main__":
         res_dict = train_partitions(X, y, split, args, data_dict)
 
     name = dataset + "_" + args.col + "_s" + str(split_id) + "_" + suf
-    with open('notebooks/plotting/partitioning/' + name + '.pkl', 'wb') as f:
+    with open('notebooks/analysis/partitioning/' + name + '.pkl', 'wb') as f:
         pickle.dump(res_dict, f)
 
     print("\n----------------------------------------")
