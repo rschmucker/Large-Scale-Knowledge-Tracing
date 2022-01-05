@@ -216,6 +216,7 @@ if __name__ == "__main__":
 
     metric_dic = defaultdict(lambda: defaultdict(list))
     for split_id in range(args.total_split):
+        torch.cuda.empty_cache()
         print(f'Train model for split ID {split_id}')
         train_data, val_data = get_data(full_df, args.max_length, dataset_name=args.dataset, split_id=split_id)
 

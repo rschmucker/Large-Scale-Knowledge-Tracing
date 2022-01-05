@@ -158,7 +158,7 @@ def train(train_data, val_data, model, optimizer, logger, saver, num_epochs, bat
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train DKT.')
-    parser.add_argument('--dataset', type=str, default='elemmath_2021')
+    parser.add_argument('--dataset', type=str)
     parser.add_argument('--logdir', type=str, default='runs/dkt')
     parser.add_argument('--savedir', type=str, default='save/dkt')
     parser.add_argument('--hid_size', type=int, default=200)
@@ -180,6 +180,7 @@ if __name__ == "__main__":
 
     metric_dic = defaultdict(lambda: defaultdict(list))
     for split_id in range(args.total_split):
+        torch.cuda.empty_cache()
         print(f'Train model for split ID {split_id}')
         train_data, test_data = get_data(full_df, dataset_name=args.dataset, split_id=split_id)
         model = DKT2(int(full_df["item_id"].max()), int(full_df["skill_id"].max() if "skill_id" in full_df.columns else full_df["hashed_skill_id"].max()), args.hid_size,

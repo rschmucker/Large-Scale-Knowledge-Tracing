@@ -84,7 +84,7 @@ def ppe_feature(p_dict):
 
     # combine with U_Id frame
     skill_fail_mat = sparse.vstack(tmps)
-    cols = ["RPFA_F_" + str(i) for i in range(num_skills)]
+    cols = ["ppe_" + str(i) for i in range(num_skills)]
     skill_fail_mat = pd.DataFrame.sparse.from_spmatrix(skill_fail_mat,
                                                        columns=cols)
     skill_fail_mat["U_ID"] = df["U_ID"]

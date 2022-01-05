@@ -9,10 +9,16 @@ def compute_metrics(y_pred, y, protection=1e-8):
     # print(y_pred.min(), y_pred.max(), y_pred.shape)
     y_pred = np.array([i if np.isfinite(i) else 0.5 for i in y_pred])
     acc = accuracy_score(y, y_pred >= 0.5)
-    auc = roc_auc_score(y, y_pred)
-    nll = log_loss(y, y_pred)
     mse = brier_score_loss(y, y_pred)
-    f1 = f1_score(y, y_pred >= 0.5)
+    # certain metrics can only be computed if both classes are present
+    if (0 in y) and (1 in y):
+        auc = roc_auc_score(y, y_pred)
+        nll = log_loss(y, y_pred)
+        f1 = f1_score(y, y_pred >= 0.5)
+    else:
+        auc = -1
+        nll = -1
+        f1 = -1
     return acc, auc, nll, mse, f1
 
 

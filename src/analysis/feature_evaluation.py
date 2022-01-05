@@ -14,11 +14,19 @@ SQLR = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_precW" + \
 SQLRp = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_precW_prev_" \
     + "resp_time_cat_rc_s_scA_TW_scW_TW_sm_t_tcA_TW_tcW_TW_user_avg_correct_vw"
 
+SQLRpp = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_ppe_precA_precW_" \
+    + "prev_resp_time_cat_rc_rpfa_F_rpfa_R_s_scA_TW_scW_TW_sm_t_tcA_TW_" \
+    + "tcW_TW_user_avg_correct_vw"
+
 EDLR = "i_icA_TW_icW_TW_lag_time_cat_n_gram_partcA_partcW_s_scA_TW" + \
     "_scW_TW_sm_tcA_TW_tcW_TW_user_avg_correct_vw"
 
 EDLRp = "i_icA_TW_icW_TW_lag_time_cat_n_gram_partcA_partcW_" \
     "prev_resp_time_cat_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_user_avg_correct_vw"
+
+EDLRpp = "i_icA_TW_icW_TW_lag_time_cat_n_gram_partcA_partcW_ppe_" \
+    + "prev_resp_time_cat_rpfa_F_rpfa_R_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_" \
+    + "user_avg_correct_vs_vw"
 
 EDLRp_nlag = "i_icA_TW_icW_TW_n_gram_partcA_partcW_prev_resp_time_cat_s_" \
     "scA_TW_scW_TW_sm_tcA_TW_tcW_TW_user_avg_correct_vw"
@@ -26,12 +34,19 @@ EDLRp_nlag = "i_icA_TW_icW_TW_n_gram_partcA_partcW_prev_resp_time_cat_s_" \
 EELR = "bundle_i_icA_TW_icW_TW_n_gram_precA_precW_s_scA_TW_scW_TW_sm" + \
     "_tcA_TW_tcW_TW_tea_user_avg_correct"
 
+EELRpp = "bundle_i_icA_TW_icW_TW_n_gram_ppe_precA_precW_rpfa_F_rpfa_R_s_" + \
+    "scA_TW_scW_TW_sm_tcA_TW_tcW_TW_tea_user_avg_correct"
+
 JULR = "hour_i_icA_TW_icW_TW_n_gram_postcA_postcW_precA_precW_rc_s_scA_TW" + \
     "_scW_TW_sm_tcA_TW_tcW_TW_user_avg_correct"
 
 JULRp = "hour_i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_" \
     + "precW_prev_resp_time_cat_rc_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_" \
     + "user_avg_correct"
+
+JULRpp = "hour_i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_ppe_precA_" \
+    + "precW_prev_resp_time_cat_rc_rpfa_F_rpfa_R_rt_s_scA_TW_scW_TW_sm_tcA_TW_" \
+    + "tcW_TW_user_avg_correct"
 
 LRP = "i_icA_TW_icW_TW_n_gram_s_scA_TW_scW_TW_tcA_TW_tcW_TW_user_avg_correct"
 
@@ -146,13 +161,17 @@ EXP_NAMES = {
     # AugmentedLR
     SQLR: "SQLR",
     SQLRp: "SQLR+",
+    SQLRpp: "SQLR+New",
     EDLR: "EDLR",
     EELR: "EELR",
+    EELRpp: "EELR+New",
     JULR: "JULR",
     JULRp: "JULR+",
+    JULRpp: "JULR+New",
     LRP: "LRP",
     EDLRp: "EDLR+",
-    EDLRp_nlag: "EDLR+ no lag"
+    EDLRp_nlag: "EDLR+ no lag",
+    EDLRpp: "EDLR+New"
 }
 
 
