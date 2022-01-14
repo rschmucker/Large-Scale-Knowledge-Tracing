@@ -21,11 +21,11 @@ The following algorithms are implemented:
 
 The following datasets are supported:
 
-* [Squirrel Ai ElemMath2021](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=4888)
 * [EdNet KT3](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view)
 * [Eedi](https://eedi.com/projects/neurips-education-challenge)
 * [Junyi15](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198)
 * [Junyi20](https://www.kaggle.com/junyiacademy/learning-activity-public-dataset-by-junyi-academy/tasks)
+* Squirrel Ai ElemMath2021
 
 *While this framework can also handle the Junyi20 dataset we want to note that the Junyi20 dataset rounds timestamps to the closest 15 minutes. This prevents an exact reconstruction of the student interaction sequences. Because most of the implemented algorithms are sensitive to the order of student responses the Junyi20 data should be handled with care. The Eedi dataset rounds timestamp information to the closest minute, but upon request the dataset authors provided us with a file allowing for an exact sequence reconstruction.*
 

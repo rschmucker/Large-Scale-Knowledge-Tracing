@@ -23,27 +23,29 @@ SEED = 888
 
 # elemmath_2021
 PARTITIONS = ["single", "time", "i", "s", "sm", "tea", "sch", "c", "t", "at"]
-SUFFIX = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_precW_prev_"\
-    + "resp_time_cat_rc_s_scA_TW_scW_TW_sm_t_tcA_TW_tcW_TW_user_avg_correct_vw"
+SUFFIX = "i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_ppe_precA_precW_" \
+    + "prev_resp_time_cat_rc_rpfa_F_rpfa_R_s_scA_TW_scW_TW_sm_t_tcA_TW_" \
+    + "tcW_TW_user_avg_correct_vw"
 
 # ednet
 # PARTITIONS = ["single", "time", "i", "hashed_skill_id", "sm", "bundle_id",
 #               "part_id", "at"]
-# SUFFIX = "i_icA_TW_icW_TW_lag_time_cat_n_gram_partcA_partcW_" \
-#     "prev_resp_time_cat_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_user_avg_correct_vw"
+# SUFFIX = "i_icA_TW_icW_TW_lag_time_cat_n_gram_partcA_partcW_ppe_" \
+#    + "prev_resp_time_cat_rpfa_F_rpfa_R_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_" \
+#    + "user_avg_correct_vs_vw"
 
 
 # eedi
-# SUFFIX = "bundle_i_icA_TW_icW_TW_n_gram_precA_precW_s_scA_TW_scW_TW_sm" + \
-#    "_tcA_TW_tcW_TW_tea_user_avg_correct"
+# SUFFIX = "bundle_i_icA_TW_icW_TW_n_gram_ppe_precA_precW_rpfa_F_rpfa_R_s_" + \
+#    "scA_TW_scW_TW_sm_tcA_TW_tcW_TW_tea_user_avg_correct"
 # PARTITIONS = ["single", "time", "i", "hashed_skill_id", "sm", "tea",
 #               "bundle_id"]
 
 
 # junyi
-# SUFFIX = "hour_i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_precA_" \
-#    + "precW_prev_resp_time_cat_rc_s_scA_TW_scW_TW_sm_tcA_TW_tcW_TW_" \
-#    + "user_avg_correct"
+# SUFFIX = "hour_i_icA_TW_icW_TW_lag_time_cat_n_gram_postcA_postcW_ppe_precA_" \
+#    + "precW_prev_resp_time_cat_rc_rpfa_F_rpfa_R_rt_s_scA_TW_scW_TW_sm_tcA_TW_" \
+#    + "tcW_TW_user_avg_correct"
 # PARTITIONS = ["single", "time", "i", "s", "sm", "part_id"]
 
 splits = []
