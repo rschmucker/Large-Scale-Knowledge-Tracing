@@ -1,6 +1,6 @@
 # Assessing the Knowledge State of Online Students
 
-This project provides an efficient analysis framework for the study of knowledge tracing algorithms using various large-scale datasets. It converts the different datasets into a standardized format and provides implementations of various logistic regression and deep learning algorithms. Parts of this codebase were adapted from an earlier [repository]([https://github.com/theophilee/learner-performance-prediction]) by Theophile Gervet. We offer convenient parallel processing capabilities for data preparation and feature extraction. Experiments can be started using the files provided in the scripts folder. This repository is published alongside the paper *Assessing the Knowledge State of Online Students - New Data, New Approaches, Improved Accuracy* ([Link](https://arxiv.org/abs/2109.01753)).
+This project provides an efficient analysis framework for the study of knowledge tracing algorithms using various large-scale datasets. It converts the different datasets into a standardized format and provides implementations of various logistic regression and deep learning algorithms. Parts of this codebase were adapted from an earlier [repository]([https://github.com/theophilee/learner-performance-prediction]) by Theophile Gervet. We offer convenient parallel processing capabilities for data preparation and feature extraction. Experiments can be started using the files provided in the scripts folder. This repository is published alongside the paper *Assessing the Performance of Online Students - New Data, New Approaches, Improved Accuracy* ([Link](https://jedm.educationaldatamining.org/index.php/JEDM/article/view/541)).
 
 ## Algorithms
 
@@ -21,7 +21,7 @@ The following algorithms are implemented:
 
 The following datasets are supported:
 
-* [EdNet KT3](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view)
+* EdNet KT3 [Data](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view) / [Meta-Data](bit.ly/ednet-content)
 * [Eedi](https://eedi.com/projects/neurips-education-challenge)
 * [Junyi15](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198)
 * [Junyi20](https://www.kaggle.com/junyiacademy/learning-activity-public-dataset-by-junyi-academy/tasks)
@@ -34,12 +34,16 @@ The following datasets are supported:
 The easiest way to use this project is to start with a new [Conda](https://docs.conda.io/en/latest/miniconda.html) environment. After that one can install all packages using the provided requirement file. There are two version of the requirement file one for GPU and one for CPU machines.
 
 ```
-conda create python==3.7 -n vedu
+conda create python==3.7.10 -n vedu
 conda activate vedu
 
 # use one of the requirement files
 pip install -r ./config/requirements_cpu.txt
 pip install -r ./config/requirements_gpu.txt
+
+# install PyTorch CPU or GPU version
+conda install pytorch=1.8.1 torchvision=0.9.1 torchaudio=0.8.1 cpuonly -c pytorch
+conda install pytorch=1.8.1 torchvision=0.9.1 cudatoolkit=10.2 torchaudio=0.8.1 -c pytorch
 ```
 
 Before starting the experiments download the desired datasets using the links above and put the files into the respecitive directories in the *data* folder. Unzip the compressed data files. 
@@ -74,4 +78,6 @@ The *scripts* and the *notebooks* folder both contain code to analyse the output
 
 ## Citation
 
-If you use this library please cite our paper: https://arxiv.org/abs/2109.01753
+If you use this library please cite our paper:
+
+*Schmucker, R., Wang, J., Hu, S., & Mitchell, T. (2022). Assessing the Performance of Online Students - New Data, New Approaches, Improved Accuracy. Journal of Educational Data Mining, 14(1), 1–45.* https://jedm.educationaldatamining.org/index.php/JEDM/article/view/541

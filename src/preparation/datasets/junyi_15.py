@@ -33,9 +33,11 @@ def prepare_question_meta_data():
     name_to_area = {}
     cols = ["name", "topic", "area"]
     for n, t, a in df[cols].values:
-        assert n not in name_to_id, "duplicated name " + str(n)
-        assert n not in name_to_skill, "duplicated name " + str(n)
-        assert n not in name_to_area, "duplicated name " + str(n)
+        # there are two known duplicated rows in the data
+        if n not in ["matrix_mul_two", "matrix_app_fruit_oil"]:
+            assert n not in name_to_id, "duplicated name " + str(n)
+            assert n not in name_to_skill, "duplicated name " + str(n)
+            assert n not in name_to_area, "duplicated name " + str(n)
 
         if t not in topic_to_id:
             topic_to_id[t] = j
