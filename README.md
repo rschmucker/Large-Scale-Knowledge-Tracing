@@ -21,7 +21,7 @@ The following algorithms are implemented:
 
 The following datasets are supported:
 
-* EdNet KT3 [Data](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view) / [Meta-Data](bit.ly/ednet-content)
+* EdNet KT3 [Data](https://drive.google.com/file/d/1TVyGIWU1Mn3UCjjeD6bcZ57YspByUV7-/view) / [Meta-Data](https://drive.google.com/file/d/117aYJAWG3GU48suS66NPaB82HwFj6xWS/view)
 * [Eedi](https://eedi.com/projects/neurips-education-challenge)
 * [Junyi15](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198)
 * [Junyi20](https://www.kaggle.com/junyiacademy/learning-activity-public-dataset-by-junyi-academy/tasks)
