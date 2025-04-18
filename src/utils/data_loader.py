@@ -106,3 +106,6 @@ def get_combined_features_and_split(features, split_id, dataset):
     y = np.load(DATASET_PATH[dataset] + 'features/target.npy')
     split = load_split(split_id, dataset)
     return X, y, split
+
+def load_interaction_df(dataset):
+    return load_preprocessed_data(dataset)["interaction_df"]

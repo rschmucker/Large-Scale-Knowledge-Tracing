@@ -104,13 +104,36 @@ def prepare_junyi_15(n_splits):
     print("\nPreparing interaction data")
     print("-----------------------------------------------")
 
-    df = pd.read_csv(DATASET_PATH["junyi_15"] +
-                     "junyi_ProblemLog_original.csv")
+    #df = pd.read_csv(DATASET_PATH["junyi_15"] + "junyi_ProblemLog_original.csv")
+    
+    
+    #df = df[df["exercise"].isin(n_to_id)]  # Filter out rows with unknown exercises
+    #df = df.dropna(subset=["exercise"])    # Drop rows where 'exercise' is NaN
+    #df = df.reset_index(drop=True)         # Reset the index to fix row alignment
+    
+    df = pd.read_csv(DATASET_PATH["junyi_15"] + "junyi_ProblemLog_original.csv", low_memory=False)
+
+    # Drop rows with missing exercise field (which causes lookup to fail)
+    df = df[df["exercise"].notna()]  # Ensures no NaN in "exercise"
+
+    # Drop rows where the exercise is not in the ID dictionary
+    df = df[df["exercise"].isin(n_to_id)]
+
+    # Reset the index to ensure row counts align
+    df = df.reset_index(drop=True)
+
+
 
     # create empty dataframe
     interaction_df = pd.DataFrame()
 
     interaction_df["user_id"] = df["user_id"]  # User IDs are 0-max
+    
+    df = df[df["exercise"].isin(n_to_id)]
+    
+    df = df.reset_index(drop=True)
+
+    
     interaction_df["item_id"] = np.array([n_to_id[n] for n in df["exercise"]])
     interaction_df["skill_id"] = \
         np.array([n_to_skill[n] for n in df["exercise"]])

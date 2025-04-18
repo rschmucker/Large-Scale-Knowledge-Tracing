@@ -25,6 +25,10 @@ import src.preprocessing.features.reading_features as r_features
 from src.preprocessing.features.average_user_correct import user_avg_correct
 from src.preprocessing.features.n_gram_feature import sequence_n_gram
 from src.preprocessing.features import feature_util
+from src.preprocessing.features.streak_feature import extract_streak_feature
+
+
+
 
 N_STEPS = 10  # default for n-gram feature
 RPFA_GHOST = 3  # 3 originates from original paper
@@ -45,6 +49,7 @@ PPE_PARAMS = {
 
 FEATURE_FUNCTIONS = {
     # One-hot features
+    'streak': ("SERIAL", extract_streak_feature),
     'u': ("SERIAL", oh_features.user_one_hot),
     'i': ("SERIAL", oh_features.item_one_hot),
     's': ("PARALLEL", oh_features.skill_one_hot),
@@ -126,6 +131,8 @@ def extract_features(features, data_dict, recompute=False):
     print("\nComputing features:")
     print("----------------------------------------")
     for f in features:
+        print(f"--- DEBUG: Processing feature '{f}' ---")
+
         assert f in FEATURE_FUNCTIONS, "Identifier '" + f + \
             "' is no valid feature."
 
@@ -142,7 +149,13 @@ def extract_features(features, data_dict, recompute=False):
         if FEATURE_FUNCTIONS[f][0] == "SERIAL":
             feature_df = func(data_dict)
         elif FEATURE_FUNCTIONS[f][0] == "PARALLEL":
-            feature_df = parallel_feature_computation(data_dict, f, func)
+            if f == "streak":
+                # 👇 Explicitly give it the save path
+                save_path = DATASET_PATH[data_dict["dataset"]] + "features/" + f + ".pkl"
+                feature_df = func(data_dict, save_path)
+            else:
+                feature_df = parallel_feature_computation(data_dict, f, func)
+
         feature_df = feature_df.astype(pd.SparseDtype("float", 0))
         print("DF shape: ", feature_df.shape)
         print("Computed feature '" + f + "' in " +
@@ -233,8 +246,8 @@ def parallel_feature_computation(data_dict, fname, ffunc):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Extract features.')
     prepare_parser.add_feature_arguments(parser)
-    parser.add_argument('-recompute', action='store_true',
-                        help='If set, recompute previously computed features.')
+    parser.add_argument('--recompute', action='store_true',
+                    help='If set, recompute previously computed features.')
     parser.add_argument('--num_threads', type=int, default=1,
                         help='Thread number for feature preparation.')
     args = parser.parse_args()
