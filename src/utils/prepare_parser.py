@@ -8,6 +8,10 @@ def add_feature_arguments(parser):
     parser.add_argument('--dataset', type=str, help="Dataset to prepare.")
 
     # One-hot features:
+    
+    parser.add_argument("-streak", action="store_true", help="Include streak feature")
+
+
     parser.add_argument('-u', action='store_true',
                         help='If True, user one hot encoding.')
     parser.add_argument('-i', action='store_true',
